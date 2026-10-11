@@ -6,7 +6,7 @@ import {
   uploadProfilePicture,
   deleteProfilePicture,
 } from "../../api/userApi";
-import "../../styles/Profile.css";
+import "../../styles/profile.css";
 
 const API_ORIGIN = "http://skill-exchange-backend-production-3d3c.up.railway.app";
 const CROP_SIZE = 512;
