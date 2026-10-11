@@ -5,7 +5,7 @@ function MatchCard({ match, onViewProfile }) {
     "U";
 
   const profileImage = match?.profilePicture
-    ? `http://localhost:8080${match.profilePicture}`
+    ? `https://skill-exchange-backend-production-3d3c.up.railway.app${match.profilePicture}`
     : null;
 
   return (
