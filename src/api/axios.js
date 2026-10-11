@@ -14,10 +14,10 @@ api.interceptors.request.use(
             config.headers.Authorization = `Bearer ${token}`;
         }
 
-        // Let Axios/browser configure multipart requests correctly.
-        // JSON requests will continue to be serialized by Axios.
         if (config.data instanceof FormData) {
+            // Let the browser set multipart/form-data and its boundary.
             delete config.headers["Content-Type"];
+            delete config.headers["content-type"];
         } else if (config.data !== undefined && config.data !== null) {
             config.headers["Content-Type"] = "application/json";
         }
