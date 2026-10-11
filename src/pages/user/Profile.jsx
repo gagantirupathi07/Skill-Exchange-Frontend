@@ -8,7 +8,7 @@ import {
 } from "../../api/userApi";
 import "../../styles/profile.css";
 
-const API_ORIGIN = "http://skill-exchange-backend-production-3d3c.up.railway.app";
+const API_ORIGIN = "https://skill-exchange-backend-production-3d3c.up.railway.app";
 const CROP_SIZE = 512;
 
 function getProfileImageUrl(path) {
