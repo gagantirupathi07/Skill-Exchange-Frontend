@@ -1,7 +1,10 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "/api",
+    baseURL: import.meta.env.VITE_API_BASE_URL || "https://skill-exchange-backend-production-3d3c.up.railway.app/api",
+    headers: {
+        "Content-Type": "application/json",
+    },
 });
 
 api.interceptors.request.use(
