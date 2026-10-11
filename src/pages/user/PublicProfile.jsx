@@ -6,18 +6,32 @@ import { getPublicUserProfile } from "../../api/userApi";
 import SendExchangeRequestModal from "../../components/SendExchangeRequestModal";
 import "../../styles/PublicProfile.css";
 
-const API_ORIGIN = "http://localhost:8080";
+const API_ORIGIN = "https://skill-exchange-backend-production-3d3c.up.railway.app";
 
+/**
+ * Supports:
+ * 1. Cloudinary HTTPS URLs
+ * 2. Other absolute HTTP/HTTPS image URLs
+ * 3. Existing local backend paths such as /uploads/profile/image.jpg
+ */
 function getProfileImageUrl(path) {
     if (!path || typeof path !== "string") {
         return null;
     }
 
-    if (/^https?:\/\//i.test(path)) {
-        return path;
+    const imagePath = path.trim();
+
+    if (!imagePath) {
+        return null;
     }
 
-    return `${API_ORIGIN}${path.startsWith("/") ? "" : "/"}${path}`;
+    // Cloudinary and other absolute image URLs
+    if (/^https?:\/\//i.test(imagePath)) {
+        return imagePath;
+    }
+
+    // Support legacy locally stored profile pictures
+    return `${API_ORIGIN}${imagePath.startsWith("/") ? "" : "/"}${imagePath}`;
 }
 
 function getErrorMessage(error) {
@@ -49,6 +63,7 @@ function PublicProfile() {
     const [successMessage, setSuccessMessage] = useState("");
     const [imageFailed, setImageFailed] = useState(false);
 
+    // Load the public profile whenever the route ID changes.
     useEffect(() => {
         let cancelled = false;
 
@@ -96,6 +111,7 @@ function PublicProfile() {
         };
     }, [id]);
 
+    // Automatically clear the success message.
     useEffect(() => {
         if (!successMessage) {
             return undefined;
@@ -115,6 +131,7 @@ function PublicProfile() {
         setSuccessMessage("Exchange request sent successfully.");
     };
 
+    // Loading state
     if (loading) {
         return (
             <div className="public-profile-wrapper">
@@ -126,6 +143,7 @@ function PublicProfile() {
         );
     }
 
+    // Error or missing profile state
     if (error || !profile) {
         return (
             <div className="public-profile-wrapper">
@@ -151,6 +169,7 @@ function PublicProfile() {
         );
     }
 
+    // Safely normalize skill arrays.
     const teachingSkills = Array.isArray(profile.teachingSkills)
         ? profile.teachingSkills
         : [];
@@ -159,17 +178,25 @@ function PublicProfile() {
         ? profile.learningSkills
         : [];
 
+    // Build the display name.
     const displayName =
         [profile.firstName, profile.lastName]
-            .filter((name) => typeof name === "string" && name.trim())
+            .filter(
+                (name) =>
+                    typeof name === "string" && name.trim().length > 0
+            )
             .map((name) => name.trim())
             .join(" ") || "User";
 
-    const initials = (
-        `${profile.firstName?.trim()?.charAt(0) || ""}` +
-        `${profile.lastName?.trim()?.charAt(0) || ""}`
-    ).toUpperCase() || "U";
+    // Build fallback initials.
+    const initials =
+        (
+            `${profile.firstName?.trim()?.charAt(0) || ""}` +
+            `${profile.lastName?.trim()?.charAt(0) || ""}`
+        ).toUpperCase() || "U";
 
+    // Cloudinary URLs are used directly.
+    // Legacy local paths are resolved against the backend origin.
     const profileImage = getProfileImageUrl(profile.profilePicture);
 
     return (
@@ -187,6 +214,7 @@ function PublicProfile() {
                 <div className="public-profile-banner" />
 
                 <div className="public-profile-content">
+                    {/* Profile header */}
                     <header className="public-profile-header">
                         <div className="public-profile-avatar">
                             {profileImage && !imageFailed ? (
@@ -224,6 +252,7 @@ function PublicProfile() {
                         </div>
                     </header>
 
+                    {/* About section */}
                     <section
                         className="public-profile-about"
                         aria-labelledby="public-about-title"
@@ -243,6 +272,7 @@ function PublicProfile() {
 
                     <div className="public-profile-divider" />
 
+                    {/* Teaching skills */}
                     <section
                         className="public-skill-section"
                         aria-labelledby="public-teaching-title"
@@ -291,6 +321,7 @@ function PublicProfile() {
 
                     <div className="public-profile-divider" />
 
+                    {/* Learning skills */}
                     <section
                         className="public-skill-section"
                         aria-labelledby="public-learning-title"
@@ -337,9 +368,11 @@ function PublicProfile() {
                         )}
                     </section>
 
+                    {/* Exchange request actions */}
                     <div className="public-profile-action-panel">
                         <div className="public-profile-action-copy">
                             <h2>Ready to exchange skills?</h2>
+
                             <p>
                                 Send a request to connect and start learning
                                 together.
@@ -367,6 +400,7 @@ function PublicProfile() {
                 </div>
             </div>
 
+            {/* Exchange request modal */}
             {showRequestModal && (
                 <SendExchangeRequestModal
                     receiver={{
