@@ -14,7 +14,7 @@ const CROP_SIZE = 512;
 function getProfileImageUrl(path) {
   if (!path) return null;
 
-  if (path.startsWith("http://") || path.startsWith("https://")) {
+  if (/^https?:\/\//i.test(path)) {
     return path;
   }
 
