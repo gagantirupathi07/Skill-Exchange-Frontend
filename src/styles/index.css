@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+:root {
+    --color-navbar: rgba(255, 255, 255, 0.88);
+    --color-sidebar: rgba(255, 255, 255, 0.82);
+
+    --color-primary: #d979ae;
+    --color-primary-light: #edb4d0;
+    --color-accent: #a88ae5;
+
+    --color-body: #f8f8fb;
+
+    --color-glass: rgba(255, 255, 255, 0.84);
+    --color-glass-border: rgba(171, 139, 199, 0.32);
+
+    --color-text: #272431;
+    --color-text-muted: #77727d;
+
+    --color-success: #43a88c;
+    --color-warning: #c9954a;
+    --color-danger: #c95d7e;
+
+    --shadow-glass:
+        0 8px 30px rgba(78, 61, 92, 0.08);
+
+    --shadow-card:
+        0 10px 35px rgba(78, 61, 92, 0.10);
+
+    --shadow-primary:
+        0 8px 22px rgba(190, 112, 170, 0.18);
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+    background: var(--color-body);
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color: var(--color-text);
+
+    background:
+        radial-gradient(
+            circle at 5% 8%,
+            rgba(230, 156, 199, 0.40) 0%,
+            rgba(230, 156, 199, 0.30) 14%,
+            rgba(230, 156, 199, 0.13) 28%,
+            transparent 44%
+        ),
+        radial-gradient(
+            circle at 95% 12%,
+            rgba(177, 151, 232, 0.38) 0%,
+            rgba(177, 151, 232, 0.28) 15%,
+            rgba(177, 151, 232, 0.12) 29%,
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 8% 88%,
+            rgba(215, 164, 211, 0.32) 0%,
+            rgba(215, 164, 211, 0.22) 16%,
+            rgba(215, 164, 211, 0.09) 30%,
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 94% 86%,
+            rgba(239, 196, 223, 0.36) 0%,
+            rgba(239, 196, 223, 0.23) 17%,
+            rgba(239, 196, 223, 0.09) 31%,
+            transparent 46%
+        ),
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255, 255, 255, 0.96) 0%,
+            rgba(255, 255, 255, 0.90) 28%,
+            rgba(255, 255, 255, 0.62) 50%,
+            transparent 72%
+        ),
+        var(--color-body);
+
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+
+#root {
+    width: 100%;
+    min-height: 100vh;
+    background: transparent;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+::selection {
+    background: rgba(217, 121, 174, 0.25);
+    color: #272431;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(246, 243, 249, 0.9);
+}
+
+::-webkit-scrollbar-thumb {
+    background:
+        linear-gradient(
+            180deg,
+            #d79abd,
+            #a88ae5
+        );
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background:
+        linear-gradient(
+            180deg,
+            #cf82ad,
+            #9978dd
+        );
+}
+
+.app-layout {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    background: transparent;
+}
+
+.app-content-wrapper {
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - 68px);
+    height: auto;
+    background: transparent;
+}
+
+.app-main {
+    flex: 1;
+    min-width: 0;
+    min-height: calc(100vh - 68px);
+    height: auto;
+    padding: 28px;
+    overflow: visible;
+    background: transparent;
+}
+
+.page-container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.glass-card {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.94),
+            rgba(253, 245, 250, 0.90) 52%,
+            rgba(247, 244, 253, 0.92)
+        );
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--color-glass-border);
+    box-shadow: var(--shadow-glass);
+    border-radius: var(--radius-lg);
+}
+
+@media (max-width: 768px) {
+    .app-main {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 640px) {
+    .app-main {
+        padding: 16px;
+    }
+}

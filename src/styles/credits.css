@@ -1,0 +1,640 @@
+.credits-page {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 68px);
+    padding: 28px;
+    color: #272431;
+    background:
+        radial-gradient(
+            circle at 2% 5%,
+            rgba(230, 120, 185, 0.40) 0%,
+            rgba(230, 120, 185, 0.25) 17%,
+            rgba(230, 120, 185, 0.10) 31%,
+            transparent 46%
+        ),
+        radial-gradient(
+            circle at 98% 8%,
+            rgba(157, 124, 226, 0.38) 0%,
+            rgba(157, 124, 226, 0.24) 18%,
+            rgba(157, 124, 226, 0.09) 31%,
+            transparent 47%
+        ),
+        radial-gradient(
+            circle at 4% 94%,
+            rgba(211, 139, 197, 0.31) 0%,
+            rgba(211, 139, 197, 0.19) 18%,
+            rgba(211, 139, 197, 0.08) 32%,
+            transparent 48%
+        ),
+        radial-gradient(
+            circle at 96% 94%,
+            rgba(239, 164, 211, 0.34) 0%,
+            rgba(239, 164, 211, 0.20) 18%,
+            rgba(239, 164, 211, 0.08) 32%,
+            transparent 49%
+        ),
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255, 255, 255, 0.86),
+            transparent 68%
+        ),
+        #f8f8fb;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.credits-header {
+    margin-bottom: 28px;
+}
+
+.credits-title {
+    margin: 0;
+    color: #25232d;
+    font-size: 30px;
+    font-weight: 750;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+}
+
+.credits-description {
+    margin: 8px 0 0;
+    color: #77727d;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.credits-error {
+    margin-bottom: 24px;
+    padding: 13px 16px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(252, 234, 240, 0.96),
+            rgba(249, 224, 234, 0.92)
+        );
+    border: 1px solid rgba(195, 95, 126, 0.28);
+    border-radius: 12px;
+    color: #b34f70;
+    font-size: 13px;
+    line-height: 1.5;
+    box-shadow:
+        0 6px 18px rgba(195, 95, 126, 0.07);
+}
+
+.credits-balance-card {
+    margin-bottom: 38px;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.99),
+            rgba(255, 240, 249, 0.97) 48%,
+            rgba(244, 237, 253, 0.98)
+        );
+    border: 1px solid rgba(169, 127, 198, 0.48);
+    border-radius: 22px;
+    box-shadow:
+        0 14px 38px rgba(78, 61, 92, 0.12),
+        0 5px 16px rgba(190, 112, 170, 0.07),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.credits-balance-header {
+    position: relative;
+    overflow: hidden;
+    padding: 42px 24px;
+    background:
+        radial-gradient(
+            circle at 18% 25%,
+            rgba(255, 208, 232, 0.24),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 84% 20%,
+            rgba(202, 184, 255, 0.24),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #c979ad,
+            #a88ae5
+        );
+    color: #ffffff;
+}
+
+.credits-balance-header::before {
+    content: "";
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    top: -120px;
+    left: -80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.10);
+}
+
+.credits-balance-header::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    right: -120px;
+    bottom: -190px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.10);
+}
+
+.credits-balance-content {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.credits-balance-label {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+}
+
+.credits-balance-value-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.credits-balance-value {
+    color: #ffffff;
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    text-shadow:
+        0 4px 18px rgba(73, 47, 93, 0.18);
+}
+
+.credits-balance-subtitle {
+    margin: 10px 0 0;
+    color: rgba(255, 255, 255, 0.84);
+    font-size: 13px;
+}
+
+.credits-wallet-info {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.98),
+            rgba(255, 242, 249, 0.95) 50%,
+            rgba(246, 241, 253, 0.96)
+        );
+}
+
+.credits-wallet-item {
+    padding: 20px;
+    text-align: center;
+}
+
+.credits-wallet-item + .credits-wallet-item {
+    border-left: 1px solid rgba(177, 151, 232, 0.18);
+}
+
+.credits-wallet-label {
+    margin: 0;
+    color: #85808b;
+    font-size: 10px;
+    font-weight: 750;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.credits-wallet-value {
+    margin: 7px 0 0;
+    color: #272431;
+    font-size: 14px;
+    font-weight: 700;
+    word-break: break-word;
+}
+
+.credits-history-header {
+    margin-bottom: 16px;
+}
+
+.credits-history-title {
+    margin: 0;
+    color: #272431;
+    font-size: 22px;
+    font-weight: 750;
+    line-height: 1.25;
+}
+
+.credits-history-description {
+    margin: 5px 0 0;
+    color: #77727d;
+    font-size: 13px;
+}
+
+.credits-empty-card {
+    padding: 48px 24px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.98),
+            rgba(255, 239, 248, 0.95) 50%,
+            rgba(244, 237, 253, 0.97)
+        );
+    border: 1px dashed rgba(171, 139, 199, 0.56);
+    border-radius: 18px;
+    text-align: center;
+    box-shadow:
+        0 10px 28px rgba(78, 61, 92, 0.08),
+        0 3px 10px rgba(190, 112, 170, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.credits-empty-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(230, 156, 199, 0.28),
+            rgba(177, 151, 232, 0.30)
+        );
+    border: 1px solid rgba(177, 151, 232, 0.24);
+    border-radius: 50%;
+    color: #9a6dbd;
+    font-size: 24px;
+    font-weight: 750;
+}
+
+.credits-empty-title {
+    margin: 0;
+    color: #272431;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.credits-empty-description {
+    max-width: 430px;
+    margin: 8px auto 0;
+    color: #817b86;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.credits-transaction-list {
+    overflow: hidden;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.98),
+            rgba(255, 243, 249, 0.96) 52%,
+            rgba(245, 240, 253, 0.97)
+        );
+    border: 1px solid rgba(171, 139, 199, 0.42);
+    border-radius: 18px;
+    box-shadow:
+        0 12px 30px rgba(78, 61, 92, 0.10),
+        0 4px 12px rgba(190, 112, 170, 0.06);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.credits-transaction {
+    padding: 20px;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.credits-transaction:hover {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 246, 251, 0.86),
+            rgba(247, 242, 253, 0.82)
+        );
+}
+
+.credits-transaction-border {
+    border-bottom: 1px solid rgba(171, 139, 199, 0.18);
+}
+
+.credits-transaction-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.credits-transaction-left {
+    display: flex;
+    align-items: flex-start;
+    min-width: 0;
+    gap: 14px;
+}
+
+.credits-transaction-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 50%;
+}
+
+.credits-earn-icon {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(88, 189, 161, 0.20),
+            rgba(67, 168, 140, 0.12)
+        );
+    border: 1px solid rgba(67, 168, 140, 0.18);
+}
+
+.credits-spend-icon {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(223, 120, 152, 0.18),
+            rgba(208, 106, 139, 0.11)
+        );
+    border: 1px solid rgba(208, 106, 139, 0.18);
+}
+
+.credits-transaction-icon-symbol {
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.credits-earn-symbol {
+    color: #398f79;
+}
+
+.credits-spend-symbol {
+    color: #c35f7e;
+}
+
+.credits-transaction-details {
+    min-width: 0;
+}
+
+.credits-transaction-title-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.credits-transaction-title {
+    margin: 0;
+    color: #272431;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.credits-transaction-type {
+    padding: 4px 9px;
+    border-radius: 999px;
+    font-size: 9px;
+    font-weight: 750;
+    letter-spacing: 0.04em;
+}
+
+.credits-earn-badge {
+    background: #e9f8f3;
+    border: 1px solid #c5e9dc;
+    color: #398f79;
+}
+
+.credits-spend-badge {
+    background: #fceaf0;
+    border: 1px solid #efc4d2;
+    color: #c35f7e;
+}
+
+.credits-transaction-description {
+    margin: 5px 0 0;
+    color: #5f5965;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.credits-transaction-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    margin-top: 7px;
+    color: #99939e;
+    font-size: 11px;
+}
+
+.credits-transaction-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-shrink: 0;
+    gap: 2px;
+}
+
+.credits-transaction-amount {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.credits-earn-amount {
+    color: #398f79;
+}
+
+.credits-spend-amount {
+    color: #c35f7e;
+}
+
+.credits-balance-after {
+    margin: 0;
+    color: #85808b;
+    font-size: 11px;
+}
+
+.credits-balance-after span {
+    color: #5f5965;
+    font-weight: 700;
+}
+
+.credits-loading-container {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background:
+        radial-gradient(
+            circle at 5% 10%,
+            rgba(230, 120, 185, 0.34),
+            transparent 36%
+        ),
+        radial-gradient(
+            circle at 95% 15%,
+            rgba(157, 124, 226, 0.32),
+            transparent 37%
+        ),
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(211, 139, 197, 0.26),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(239, 164, 211, 0.28),
+            transparent 35%
+        ),
+        rgba(248, 248, 251, 0.60);
+    border-radius: 22px;
+}
+
+.credits-loading-text {
+    margin: 0;
+    color: #77727d;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .credits-page {
+        padding: 24px;
+    }
+
+    .credits-transaction-content {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 760px) {
+    .credits-page {
+        padding: 20px;
+    }
+
+    .credits-wallet-info {
+        grid-template-columns: 1fr;
+    }
+
+    .credits-wallet-item + .credits-wallet-item {
+        border-top: 1px solid rgba(177, 151, 232, 0.18);
+        border-left: none;
+    }
+
+    .credits-transaction-content {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .credits-transaction-right {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .credits-title {
+        font-size: 27px;
+    }
+
+    .credits-balance-value {
+        font-size: 46px;
+    }
+}
+
+@media (max-width: 520px) {
+    .credits-page {
+        padding: 16px;
+    }
+
+    .credits-header {
+        margin-bottom: 22px;
+    }
+
+    .credits-title {
+        font-size: 24px;
+    }
+
+    .credits-description {
+        font-size: 14px;
+    }
+
+    .credits-balance-card {
+        margin-bottom: 30px;
+        border-radius: 18px;
+    }
+
+    .credits-balance-header {
+        padding: 34px 18px;
+    }
+
+    .credits-balance-value {
+        font-size: 40px;
+    }
+
+    .credits-wallet-item {
+        padding: 17px;
+    }
+
+    .credits-history-title {
+        font-size: 20px;
+    }
+
+    .credits-transaction {
+        padding: 16px;
+    }
+
+    .credits-transaction-left {
+        gap: 11px;
+    }
+
+    .credits-transaction-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .credits-transaction-description {
+        font-size: 12px;
+    }
+
+    .credits-transaction-meta {
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .credits-transaction-right {
+        align-items: flex-start;
+    }
+
+    .credits-transaction-amount {
+        font-size: 18px;
+    }
+
+    .credits-empty-card {
+        padding: 38px 18px;
+    }
+}

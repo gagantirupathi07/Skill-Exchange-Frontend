@@ -1,0 +1,499 @@
+.app-navbar {
+    position: sticky;
+    top: 16px;
+    z-index: 1000;
+
+    width: calc(100% - 48px);
+    max-width: 1480px;
+    min-height: 76px;
+
+    margin: 16px auto 0;
+    padding: 0 16px 0 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.94),
+        rgba(253, 245, 250, 0.94) 50%,
+        rgba(246, 243, 253, 0.95)
+    );
+
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+
+    border: 1px solid rgba(171, 139, 199, 0.34);
+    border-radius: 24px;
+
+    box-shadow:
+        0 10px 40px rgba(78, 61, 92, 0.10),
+        0 0 35px rgba(217, 121, 174, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+    box-sizing: border-box;
+}
+
+.app-navbar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    border-radius: inherit;
+
+    background: linear-gradient(
+        90deg,
+        rgba(217, 121, 174, 0.08),
+        transparent 35%,
+        rgba(168, 138, 229, 0.08)
+    );
+}
+
+/* Logo */
+
+.app-logo {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    flex-shrink: 0;
+    min-width: max-content;
+
+    color: #272431;
+    cursor: pointer;
+    user-select: none;
+}
+
+.app-logo-mark {
+    width: 42px;
+    height: 42px;
+
+    display: block;
+    flex-shrink: 0;
+
+    object-fit: contain;
+    border-radius: 13px;
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    box-shadow:
+        0 6px 22px rgba(190, 112, 170, 0.20),
+        0 0 18px rgba(217, 121, 174, 0.08);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.app-logo:hover .app-logo-mark {
+    transform: translateY(-1px) scale(1.03);
+
+    box-shadow:
+        0 8px 26px rgba(190, 112, 170, 0.28),
+        0 0 22px rgba(217, 121, 174, 0.12);
+}
+
+.app-logo-content {
+    display: flex;
+    flex-direction: column;
+    min-width: max-content;
+}
+
+.app-logo-text {
+    display: block;
+
+    width: max-content;
+    min-width: max-content;
+
+    font-size: 19px;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+
+    background: linear-gradient(
+        90deg,
+        #d979ae,
+        #b287d9,
+        #9b82d7
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    white-space: nowrap;
+}
+
+.app-logo-subtitle {
+    margin-top: 4px;
+
+    color: #85808b;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+
+    white-space: nowrap;
+}
+
+/* Navigation */
+
+.navbar-navigation {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+
+    flex: 1;
+    min-width: 0;
+}
+
+.navbar-link {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 42px;
+    padding: 0 11px;
+
+    border: 1px solid transparent;
+    border-radius: 11px;
+
+    color: #77727d;
+    font-size: 12px;
+    font-weight: 650;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.navbar-link:hover {
+    color: #272431;
+    background: rgba(217, 121, 174, 0.08);
+}
+
+.navbar-link.active {
+    color: #8d5d84;
+
+    background: linear-gradient(
+        135deg,
+        rgba(217, 121, 174, 0.15),
+        rgba(168, 138, 229, 0.13)
+    );
+
+    border-color: rgba(199, 128, 172, 0.14);
+}
+
+.navbar-link.active::after {
+    content: "";
+
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+
+    width: 18px;
+    height: 2px;
+
+    transform: translateX(-50%);
+    border-radius: 999px;
+
+    background: linear-gradient(
+        90deg,
+        #d979ae,
+        #b287d9,
+        #a88ae5
+    );
+
+    box-shadow: 0 0 8px rgba(190, 112, 170, 0.30);
+}
+
+/* Profile and logout */
+
+.navbar-actions {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    flex-shrink: 0;
+}
+
+.navbar-profile {
+    min-height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 0 12px;
+
+    border: 1px solid rgba(171, 139, 199, 0.30);
+    border-radius: 11px;
+
+    background: rgba(255, 255, 255, 0.62);
+    color: #615b67;
+
+    font-size: 12px;
+    font-weight: 650;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.navbar-profile:hover {
+    background: rgba(248, 235, 244, 0.90);
+    border-color: rgba(199, 128, 172, 0.44);
+    transform: translateY(-1px);
+}
+
+/* Fallback avatar displaying the user's initial */
+
+.navbar-profile-icon {
+    width: 25px;
+    height: 25px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #d979ae,
+        #b287d9,
+        #a88ae5
+    );
+
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+/* Actual uploaded profile picture */
+
+.navbar-profile-image {
+    width: 25px;
+    height: 25px;
+
+    display: block;
+    flex-shrink: 0;
+
+    border-radius: 50%;
+    object-fit: cover;
+
+    border: 1px solid rgba(171, 139, 199, 0.3);
+    background: #f4e8f5;
+}
+
+.navbar-profile-name {
+    max-width: 90px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Logout button */
+
+.navbar-logout {
+    min-height: 42px;
+    padding: 0 15px;
+
+    border: 1px solid rgba(199, 128, 172, 0.32);
+    border-radius: 11px;
+
+    background: linear-gradient(
+        135deg,
+        #d979ae,
+        #a88ae5
+    );
+
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 18px rgba(190, 112, 170, 0.18);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.navbar-logout:hover {
+    background: linear-gradient(
+        135deg,
+        #cf68a1,
+        #9978dd
+    );
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 8px 22px rgba(190, 112, 170, 0.26);
+}
+
+/* Medium screens */
+
+@media (max-width: 1250px) {
+    .app-navbar {
+        gap: 14px;
+    }
+
+    .navbar-navigation {
+        gap: 1px;
+    }
+
+    .navbar-link {
+        padding: 0 8px;
+        font-size: 11px;
+    }
+
+    .app-logo-subtitle {
+        display: none;
+    }
+
+    .navbar-profile-name {
+        display: none;
+    }
+
+    .navbar-profile {
+        padding: 0 9px;
+    }
+}
+
+/* Smaller laptops and tablets */
+
+@media (max-width: 1000px) {
+    .app-navbar {
+        width: calc(100% - 32px);
+        padding-left: 15px;
+    }
+
+    .app-logo-text {
+        font-size: 17px;
+    }
+
+    .app-logo-mark {
+        width: 38px;
+        height: 38px;
+    }
+
+    .navbar-link {
+        padding: 0 6px;
+        font-size: 10px;
+    }
+
+    .navbar-actions {
+        gap: 5px;
+    }
+
+    .navbar-logout {
+        padding: 0 11px;
+    }
+}
+
+/* Compact navigation */
+
+@media (max-width: 820px) {
+    .app-navbar {
+        min-height: 68px;
+        border-radius: 20px;
+    }
+
+    .navbar-navigation {
+        overflow-x: auto;
+        justify-content: flex-start;
+        scrollbar-width: none;
+    }
+
+    .navbar-navigation::-webkit-scrollbar {
+        display: none;
+    }
+
+    .navbar-link {
+        flex-shrink: 0;
+    }
+
+    .navbar-actions {
+        flex-shrink: 0;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 640px) {
+    .app-navbar {
+        position: sticky;
+        top: 8px;
+
+        width: calc(100% - 20px);
+        min-height: 62px;
+
+        margin-top: 8px;
+        padding: 0 10px;
+        gap: 8px;
+
+        border-radius: 18px;
+    }
+
+    .app-logo {
+        gap: 7px;
+    }
+
+    .app-logo-mark {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+    }
+
+    .app-logo-text {
+        font-size: 14px;
+    }
+
+    .navbar-navigation {
+        display: none;
+    }
+
+    .navbar-profile {
+        min-height: 36px;
+        padding: 0 7px;
+    }
+
+    .navbar-profile-icon,
+    .navbar-profile-image {
+        width: 23px;
+        height: 23px;
+    }
+
+    .navbar-logout {
+        min-height: 36px;
+        padding: 0 10px;
+        font-size: 10px;
+    }
+}
