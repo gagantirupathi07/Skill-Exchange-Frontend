@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { getPublicUserProfile } from "../../api/userApi";
 import SendExchangeRequestModal from "../../components/SendExchangeRequestModal";
-import "../../styles/PublicProfile.css";
+import "../../styles/publicProfile.css";
 
 const API_ORIGIN = "https://skill-exchange-backend-production-3d3c.up.railway.app";
 
