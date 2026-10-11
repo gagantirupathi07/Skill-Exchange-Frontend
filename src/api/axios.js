@@ -1,10 +1,9 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_BASE_URL || "https://skill-exchange-backend-production-3d3c.up.railway.app/api",
-    headers: {
-        "Content-Type": "application/json",
-    },
+    baseURL:
+        import.meta.env.VITE_API_BASE_URL ||
+        "https://skill-exchange-backend-production-3d3c.up.railway.app/api",
 });
 
 api.interceptors.request.use(
@@ -13,6 +12,14 @@ api.interceptors.request.use(
 
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
+        }
+
+        // Let Axios/browser configure multipart requests correctly.
+        // JSON requests will continue to be serialized by Axios.
+        if (config.data instanceof FormData) {
+            delete config.headers["Content-Type"];
+        } else if (config.data !== undefined && config.data !== null) {
+            config.headers["Content-Type"] = "application/json";
         }
 
         return config;
